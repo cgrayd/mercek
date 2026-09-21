@@ -1,0 +1,21 @@
+# Derleme baglamina girmesi gereksiz olan her sey. KURULUM.md sanal ortami
+# bu klasorde olusturmayi soyluyor; .venv baglama girerse imaj derlemesi
+# yuzlerce megabayt gereksiz dosya yukler.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+.env
+.env.*
+
+.vscode/
+.idea/
+
+# Imajda calismayan dosyalar: Dockerfile yalnizca app/ klasorunu kopyalar.
+degerlendirme/
+asvs.json
+Dockerfile
+.dockerignore
+.gitignore

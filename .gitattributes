@@ -1,0 +1,37 @@
+# Depoda satir sonu daima LF olarak saklanir; calisma kopyasi isletim
+# sistemine gore acilir. Bu dosya olmadan Windows'ta olusturulan CRLF
+# dosyalar baska platformlarda tum satirlari degismis gosterir.
+* text=auto
+
+*.py      text diff=python
+*.js      text
+*.jsx     text
+*.css     text
+*.html    text
+*.json    text
+*.md      text diff=markdown
+*.yml     text
+*.yaml    text
+*.txt     text
+*.ornek   text
+.gitignore      text
+.gitattributes  text
+Dockerfile      text
+
+# Windows toplu is dosyalari CRLF olmak zorunda; LF ile satirlar birlesip
+# komut bozulabilir.
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+# Kabuk betikleri tersine, daima LF olmali.
+*.sh      text eol=lf
+
+# Ikili dosyalar: satir sonu donusumu ve metin farki uygulanmaz.
+*.docx    binary
+*.pdf     binary
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.ico     binary
+*.woff    binary
+*.woff2   binary

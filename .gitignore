@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+
+# Ayarlar ve gizli degerler
+.env
+.env.*
+
+# Yerel editor ayarlari
+.vscode/
+.idea/
+
+# Isletim sistemi
+.DS_Store
+Thumbs.db

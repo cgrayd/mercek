@@ -1,0 +1,119 @@
+{
+  "_aciklama": [
+    "Degerlendirme setinin beklenen ciktilari. Her belge bir hipotezi sinar.",
+    "",
+    "olgu_olmali             : cikarilmasi gereken adlar ve turler (recall)",
+    "olgu_olmamali           : cikmamasi gereken adlar ve turler (yanlis pozitif)",
+    "bulgu_olmamali_teknoloji: bulgu uretilmemesi gereken teknolojiler (gurultu)",
+    "ozet_icermemeli         : ozette gecmemesi gereken ifadeler",
+    "ozet_icermeli_biri      : ozette en az birinin gecmesi gereken ifadeler",
+    "bulgu_olmali            : bildirilmesi zorunlu riskler (tuzak sinamasi)",
+    "azami_bulgu             : bu sayinin ustu asiri uretim sayilir",
+    "",
+    "Set iki kutupludur:",
+    "  temiz_*  -> hicbir bulgu cikmamali; cikan her bulgu yanlis pozitiftir.",
+    "  tuzak*   -> her tuzak bildirilmeli; kacan her tuzak kayiptir.",
+    "Iki kutup birlikte olculmeden dogruluk orani anlamli olmaz; yalnizca",
+    "tuzakli belgeye bakan bir olcum, her seye bulgu yazan bir araci da",
+    "basarili gosterir.",
+    "",
+    "Anahtar secimi: her tuzagin `anahtar` listesi yalnizca o tuzaga ait",
+    "bulgunun metninde gecebilecek ifadelerden secilir. Jenerik sablon",
+    "bulgusunun tetikleyecegi bir anahtar, tespiti degil varligi olcer."
+  ],
+
+  "temiz_rapor.docx": {
+    "aciklama": "Turkce bicimbirimsel cozumleyici raporu. Kisisel veri, ag, hesap ve ucuncu taraf icermez. Yanlis pozitif sinamasi.",
+    "olgu_olmamali": [
+      "saglik verisi", "kimlik verisi", "iletisim verisi", "konum verisi",
+      "finansal veri", "cocuk verisi", "biyometrik veri"
+    ],
+    "ozet_icermemeli": ["Ekip Uyeleri", "Teslim Tarihi", "Danisman", "Ogrenci No"],
+    "ozet_icermeli_biri": ["bicimbirim", "cozumleyici", "Turkce", "sonlu durum", "morfoloji"],
+    "bulgu_olmali": [],
+    "azami_bulgu": 0
+  },
+
+  "temiz_tez.docx": {
+    "aciklama": "Bitki yapragi siniflandirma tezi. Kamuya acik veri kumesi, kapali kume, hizmet olarak sunulmuyor. Yanlis pozitif sinamasi.",
+    "olgu_olmamali": [
+      "saglik verisi", "kimlik verisi", "iletisim verisi", "konum verisi",
+      "finansal veri", "cocuk verisi", "biyometrik veri"
+    ],
+    "ozet_icermemeli": ["Ekip Uyeleri", "Teslim Tarihi", "Danisman", "Ogrenci No"],
+    "ozet_icermeli_biri": ["yaprak", "siniflandir", "evrisimli", "sinir agi", "goruntu"],
+    "bulgu_olmali": [],
+    "azami_bulgu": 0
+  },
+
+  "tuzak_raporu.docx": {
+    "aciklama": "MiniTakip anaokulu veli iletisim raporu. Alti tuzak + iki negatif kontrol (iyzico barindirilan odeme, MD5'ten bcrypt'e gecis).",
+    "olgu_olmali": [
+      "Google Gemini API", "AWS S3", "Datadog", "PostgreSQL", "JWT",
+      "saglik verisi", "kimlik verisi", "cocuk verisi", "iletisim verisi"
+    ],
+    "ozet_icermemeli": ["Ekip Uyeleri", "Teslim Tarihi"],
+    "ozet_icermeli_biri": ["anaokulu", "veli", "iletisim", "ogretmen"],
+    "bulgu_olmamali_teknoloji": ["React", "React Native", "Node.js"],
+    "bulgu_olmali": [
+      { "ad": "Gemini API'ye cocuk verisi (sinir otesi aktarim)",
+        "anahtar": ["Gemini"] },
+      { "ad": "S3 kovasi public-read + tahmin edilebilir dosya adi",
+        "anahtar": ["public-read", "herkese acik"] },
+      { "ad": "Gunluklere T.C. kimlik numarasi ve istek govdesi",
+        "anahtar": ["gunluk kay", "loglan", "istek govdesi"] },
+      { "ad": "Ozel nitelikli saglik verisi (alerji, ilac, kronik)",
+        "anahtar": ["saglik verisi", "alerji"] },
+      { "ad": "Kaynak kodda sabit API anahtari",
+        "anahtar": ["kaynak kodda", "sabit olarak", "ApiKeys"] },
+      { "ad": "Yetkilendirme: cocuk_id istemciden geliyor",
+        "anahtar": ["cocuk_id", "istemci tarafindan"] }
+    ],
+    "azami_bulgu": 20
+  },
+
+  "tuzakli_tez.docx": {
+    "aciklama": "Kampus poliklinik randevu tezi. On bes tuzak + negatif kontroller (TLS 1.3, Argon2id, PayTR barindirilan odeme, bagimlilik taramasi).",
+    "olgu_olmali": [
+      "OpenAI API", "Firebase", "Cloudinary", "Sentry", "Google Cloud Storage",
+      "Google Analytics", "PostgreSQL", "JWT", "PayTR",
+      "saglik verisi", "kimlik verisi", "konum verisi", "iletisim verisi"
+    ],
+    "ozet_icermemeli": ["Ekip Uyeleri", "Teslim Tarihi"],
+    "ozet_icermeli_biri": ["poliklinik", "randevu", "kampus", "mediko"],
+    "bulgu_olmamali_teknoloji": ["React", "React Native", "Node.js"],
+    "bulgu_olmali": [
+      { "ad": "Kaynak kodda sabit API anahtarlari (keys.js)",
+        "anahtar": ["kaynak kodda", "sabit olarak", "keys.js"] },
+      { "ad": "Saglik verisi icin ayri acik riza yok",
+        "anahtar": ["acik riza", "riza"] },
+      { "ad": "JWT 90 gun gecerli, iptal listesi yok",
+        "anahtar": ["90 gun", "gecerlilik suresi"] },
+      { "ad": "Jeton localStorage / AsyncStorage icinde",
+        "anahtar": ["localStorage", "AsyncStorage"] },
+      { "ad": "Yetkilendirme istemci tarafinda",
+        "anahtar": ["istemci tarafindan", "arayuz tarafinda"] },
+      { "ad": "Firebase Realtime Database kurallari acik",
+        "anahtar": ["Realtime Database", "guvenlik kurallari"] },
+      { "ad": "Belgeler sirali kimlikle, imzasiz teslim",
+        "anahtar": ["imzasiz", "sirali", "tahmin edilebilir"] },
+      { "ad": "Hasta notlari OpenAI API'ye gonderiliyor",
+        "anahtar": ["OpenAI"] },
+      { "ad": "Arka planda surekli konum, 30 gunluk gecmis",
+        "anahtar": ["konum", "GPS"] },
+      { "ad": "Gunluklere istek govdesinin tamami",
+        "anahtar": ["istek govdesi", "gunluk kay"] },
+      { "ad": "SMS dogrulama kodu Sentry'ye dusuyor",
+        "anahtar": ["Sentry"] },
+      { "ad": "Yedekler sifrelenmeden bulut depolamaya",
+        "anahtar": ["sifrelenmeden", "yedek"] },
+      { "ad": "Uretim veritabani kopyasi test ortaminda",
+        "anahtar": ["test ortami", "test sunucu", "uretim veritabani"] },
+      { "ad": "Yonetici raporu CSV olarak e-posta ile",
+        "anahtar": ["CSV", "disa aktar"] },
+      { "ad": "Google Analytics olay adinda poliklinik adi",
+        "anahtar": ["Google Analytics", "analitik"] }
+    ],
+    "azami_bulgu": 24
+  }
+}

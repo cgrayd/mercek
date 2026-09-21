@@ -1,0 +1,20 @@
+# Ayar dosyalarinin hicbiri depoya girmez; gercek API anahtari burada durur.
+# Ayarlarin tam listesi ve varsayilanlari app/config.py icinde, kurulum
+# ornegi KURULUM.md icinde.
+.env
+.env.*
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# OWASP'tan indirilen tam ASVS korpusu. Ucuncu taraf icerik ve istege
+# bagli; indirme komutu KURULUM.md icinde. Tohum veri bu dosya olmadan
+# da calisir.
+asvs.json
+
+# Yerel editor ayarlari
+.vscode/
+.idea/

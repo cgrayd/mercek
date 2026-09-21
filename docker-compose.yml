@@ -1,0 +1,38 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.4
+    ports: ["6333:6333", "6334:6334"]
+    volumes: ["qdrant_veri:/qdrant/storage"]
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333'"]
+      interval: 10s
+      retries: 5
+
+  # Yerel model sunucusu. Ayri GPU yoksa CPU'da calisir ve model secimi
+  # belirleyici olur: model dosyasinin tamami RAM'e sigmali (bkz. README).
+  ollama:
+    image: ollama/ollama:latest
+    ports: ["11434:11434"]
+    volumes: ["ollama_veri:/root/.ollama"]
+    # GPU icin bu blogu acin:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices: [{driver: nvidia, count: all, capabilities: [gpu]}]
+
+  backend:
+    build: ./backend
+    ports: ["8000:8000"]
+    depends_on:
+      qdrant: {condition: service_healthy}
+    environment:
+      MERCEK_QDRANT_URL: http://qdrant:6333
+      MERCEK_LLM_BASE_URL: http://ollama:11434/v1
+      MERCEK_LLM_MODEL: ${MERCEK_LLM_MODEL:-qwen3.5:4b}
+      MERCEK_EMBED_DEVICE: ${MERCEK_EMBED_DEVICE:-cpu}
+    volumes: ["hf_onbellek:/root/.cache/huggingface"]
+
+volumes:
+  qdrant_veri:
+  ollama_veri:
+  hf_onbellek:
