@@ -1,4 +1,4 @@
-# Derleme baglamina girmesi gereksiz olan her sey. KURULUM.md sanal ortami
+# Derleme baglamina girmesi gereksiz olan her sey. SETUP.md sanal ortami
 # bu klasorde olusturmayi soyluyor; .venv baglama girerse imaj derlemesi
 # yuzlerce megabayt gereksiz dosya yukler.
 .venv/

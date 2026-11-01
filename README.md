@@ -17,7 +17,7 @@ reach the user.
 
 ## Quick start
 
-Step-by-step guide: **[KURULUM.md](KURULUM.md)** (Turkish, ~45 minutes, mostly
+Step-by-step guide: **[SETUP.md](SETUP.md)** (~45 minutes, mostly
 download time, ~6 GB in total).
 
 ```bash

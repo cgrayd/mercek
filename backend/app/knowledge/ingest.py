@@ -22,7 +22,7 @@ def asvs_json_oku(yol: Path) -> list[dict]:
     """OWASP ASVS resmi JSON dagitimini kayit listesine cevirir.
 
     Beklenen dosya: `..._en.flat.json` (ASVS 5.0 ve sonrasi).
-    Indirme adresi icin KURULUM.md'ye bakin.
+    Indirme adresi icin SETUP.md'ye bakin.
 
     Yapisi:
         {"requirements": [

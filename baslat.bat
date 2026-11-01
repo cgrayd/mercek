@@ -4,7 +4,7 @@ title Mercek
 
 REM Kurulum bittikten sonra uygulamayi tek tiklamayla ayaga kaldirir:
 REM Qdrant + backend + arayuz, ardindan tarayiciyi acar.
-REM Ilk kurulum icin KURULUM.md dosyasina bakin.
+REM Ilk kurulum icin SETUP.md dosyasina bakin.
 
 cd /d "%~dp0"
 
@@ -15,7 +15,7 @@ echo.
 REM --- On kosullar -------------------------------------------------------
 if not exist "backend\.venv\Scripts\activate.bat" (
     echo   [HATA] backend\.venv bulunamadi.
-    echo          Once kurulumu tamamlayin: KURULUM.md, Adim 4a-4b.
+    echo          Once kurulumu tamamlayin: SETUP.md, adim 4.
     echo.
     pause
     exit /b 1
