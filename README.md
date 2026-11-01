@@ -13,6 +13,9 @@ OWASP ASVS, CWE, LINDDUN, KVKK and GDPR. Every finding is tied to both a quote f
 the document and a clause from a standard. Findings without that grounding never
 reach the user.
 
+Mercek is designed for Turkish-language reports, so its interface and findings are in
+Turkish.
+
 ---
 
 ## Quick start
